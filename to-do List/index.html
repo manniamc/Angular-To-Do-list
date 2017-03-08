@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en" ng-app="todo">
+<head>
+	<title>AngularJS Todo List</title>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Todo List | Using AngularJS and Bootstrap"/>
+	<meta name="author" content="Akshay">
+
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/jquery-ui.min.css">
+	<link rel="stylesheet" href="css/common.css">
+
+	<script src="js/libs/jquery.min.js"></script>
+	<script src="js/libs/jquery-ui.min.js"></script>
+	<script src="js/libs/jquery.ui.touch-punch.min.js"></script>
+	<script src="js/libs/bootstrap.min.js"></script>
+	<script src="js/libs/angular.min.js"></script>
+	<script src="js/libs/angular-local-storage.min.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/directives/angular.editInPlace.js"></script>
+</head>
+<body ng-controller="TodoCtrl" ng-init="init()">
+	<div class="container" ng-controller="TodoCtrl" id="mybox">
+		<div class="row">
+			<div class="col-xs-3"></div>
+			<div class="col-xs-6">
+				<div class="row">
+					<div class="col-xs-12">
+						<ul class="nav nav-pills todo-filter pull-right">
+						  <li ng-class="{'active' : show == 'All' }" ng-click="show='All'"><a href="#">All</a></li>
+						  <li ng-class="{'active' : show == 'Incomplete' }" ng-click="show='Incomplete'"><a href="#">Incomplete</a></li>
+						  <li ng-class="{'active' : show == 'Complete' }" ng-click="show='Complete'"><a href="#">Complete</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="row" id="todoAdd">
+					<div class="form-group">
+						<input class="todoField" id="newTodoField" type="text" ng-model="newTodo" placeholder="Add New Todo" >
+						<button id="todoSubmit" class="btn btn-default" ng-click="addTodo()">Add</button>
+					</div>
+				</div>
+				<div><hr class="single"></div>
+				<div class="row">
+					<ul class="list-unstyled" ng-repeat="todos in model track by $index" ng-model="todos.list" ng-show="$index === currentShow">
+						<li class="todoTask" ng-repeat="todo in todos.list | filter:showFn | filter :todoSearch ">
+							<input class="todoCheckbox" ng-model="todo.isDone" type="checkbox">
+							<label class="todoCheckboxlabel" ></label>
+							<edit-in-place value="todo.taskName"></edit-in-place>
+							<button type="button" class="close pull-right" aria-hidden="true" ng-click="deleteTodo(todo)">&times;</button>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

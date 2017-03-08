@@ -1,0 +1,90 @@
+#mybox{
+    margin: 15px;
+}
+
+body {
+    background-color: #E5E5E5;
+}
+
+hr.single {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+.todo-filter {
+	margin-bottom: 25px;
+}
+
+.todo-filter>li>a{
+	padding: 8px 12px;
+	font-size: 14px;
+}
+
+#todoAdd,
+#todoSubmit {
+	margin-left: 4%;
+}
+
+.todoContainer {
+    margin-top: 4%;
+    padding: 5%;
+    border-radius: 7px;
+    border-color: #16a085;
+    border-width: 7px;
+    border-style: outset;
+}
+
+.todoField{
+	padding-left: 5px;
+	font-size: 20px;
+}
+
+#newTodoField{
+    width: 75%;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+    line-height: 40px;
+    background-image: url(../img/iptIcon.png);
+    background-repeat: no-repeat;
+    background-size: 37px;
+    padding-left: 50px;
+    background-position: 3px;
+}
+
+#todoSubmit{
+    padding: 10px 19px;
+    border-radius: 6px;
+    color: #fff;
+    background-color: #1abc9c;
+    border: none;
+}
+
+.todoTask{
+	margin-bottom: 20px;
+    word-break: break-all;
+}
+
+.todoName{
+	font-size: 20px;
+	padding-bottom:5px;
+    color: #16a085;
+    letter-spacing: 1px;
+}
+
+.edit-in-place span {
+  cursor: pointer;
+}
+
+.edit-in-place input {
+  display: none;
+}
+
+.edit-in-place.active span {
+  display: none;
+}
+
+.edit-in-place.active input {
+  display: inline-block;
+}
